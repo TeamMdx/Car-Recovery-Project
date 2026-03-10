@@ -1,0 +1,39 @@
+PROJEXT: Mobile Car Recovery Management System
+DATE:    March 2, 2026
+TYPE:    Sprint 0 - Kick-off Meeting
+---------------------------------------------------------------------------
+
+ATTENDANCE & ROLES:
+- Avisha Garusingha:   Team Leader / SCRUM Master
+- Zion James-Simpson:  Secretary
+- Hoang Phuong Nam:    Developer
+- Brent Li:            Developer
+- Shreyesh Lawaju:     Tester
+
+---------------------------------------------------------------------------
+
+1. AGENDA
+   - Official formation of the project team and role allocation.
+   - Initial review of the CST2550 Coursework specifications.
+   - Selection of the "Mobile Car Recovery" service theme.
+   - Discussion on required custom data structures.
+
+2. DISCUSSION
+   - Avisha (Scrum Master) outlined the iterative Sprint process we will follow.
+   - Zion (Secretary) established the folder structure for meeting minutes.
+   - The team discussed the strict requirement: No standard C# collections 
+     (like List or Dictionary) are allowed for the core search functionality.
+   - The Developers (Hoang & Brent) suggested a Doubly Linked List to 
+     manage the "Recovery Queue" effectively.
+
+3. DECISIONS MADE
+   - PROJECT THEME: Mobile Car Recovery Management System.
+   - DATA STRUCTURE: Doubly Linked List (to be implemented from scratch).
+   - VERSION CONTROL: GitHub repository hosted by Avisha.
+   - REPO ACCESS: All tutors to be invited with 'Read' access immediately.
+
+4. ACTION ITEMS
+   [ ] Set up GitHub Repository and .gitignore (Avisha)
+   [ ] Upload Meeting 01 to the /Meeting_Minutes folder (Zion)
+   [ ] Draft properties for the 'Vehicle' class (Hoang & Brent)
+   [ ] Research
