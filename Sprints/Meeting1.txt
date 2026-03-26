@@ -1,6 +1,0 @@
-Daily Standup 1: Project Kickoff
-	•	Date: March 2, 2026 | Attendance: All Present
-	•	 Avisha (Leader): Formally designated roles: Scrum Master (Self), Secretary (Zion), Developers (Hoang/Brent), and Tester (Shreyesh).  
-	•	 Brent/Hoang (Devs): Analyzed the "Mobile Car Recovery" scenario to identify required data fields (License Plate, Owner, Location).  
-	•	 Shreyesh (Tester): Checked the marking scheme; noted that code without a video gets zero marks.  
-	•	 Obstacles: Clarifying the "No STL" rule to ensure we don't accidentally use List<T> or Dictionary.
