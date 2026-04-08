@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>Recovery System</title></head>
+<body>
+    <h1>Recovery System </h1>
+    <div>
+        <input id="sP" placeholder="Search Plate">
+        <button onclick="doSearch()">Search</button>
+        <div id="out"></div>
+    </div>
+    <hr>
+    <div>
+        <input id="p" placeholder="New Plate">
+        <input id="m" placeholder="Model">
+        <button onclick="doAdd()">Add Car</button>
+    </div>
+
+    <script>
+        async function doSearch() {
+            const res = await fetch('/api/recovery/' + document.getElementById('sP').value);
+            if(res.ok) {
+                const d = await res.json();
+                document.getElementById('out').innerText = Found: ${d.carModel} [${d.status}];
+            } else { alert("Not found"); }
+        }
+
+        async function doAdd() {
+            const rec = { numberPlate: document.getElementById('p').value, carModel: document.getElementById('m').value };
+            await fetch('/api/recovery', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(rec)
+            });
+            alert("Added!");
+        }
+    </script>
+</body>
+</html>
