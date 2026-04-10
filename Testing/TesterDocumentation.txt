@@ -1,0 +1,160 @@
+# Tester Documentation — Car Recovery Management System
+### CST2550 COURSEWORK
+
+---
+
+## Update 1 — Initial Environment Setup and Repository Review
+**Date:** 26–29 March 2026
+**Files:** `RecoveryRecord.cs`, `Node.cs`, `RecoveryTree.cs`, `Program.cs`
+
+### Summary
+The focus of this update was the initial environment setup and a structural review of the project repository. The goal was to ensure the testing environment was correctly configured ahead of functional testing.
+
+### What was added
+The three core data structure files were written. `RecoveryRecord.cs` defined the breakdown model with fields for number plate, car model, issue, location, breakdown time and status. `Node.cs` was the BST node wrapper holding a record and left/right child references. `RecoveryTree.cs` implemented insert and search using `string.Compare()` on the number plate. `Program.cs` was the entry point.
+
+### What was tested
+- Conducted a walkthrough of the first code push and verified the folder structure (`SourceCode`, `Documentation`, `Testing`) was organised according to the project plan
+- Verified the class definitions in `RecoveryRecord.cs`, `Node.cs`, and `RecoveryTree.cs` matched the agreed project design
+- No functional testing was performed during this session as the logic implementation was still in the blueprint stage
+
+### Observations
+The project environment was stable and correctly initialised. The codebase at this point consisted of the primary project architecture and class definitions only. Ready to begin functional testing once the first logic-based modules were pushed.
+
+### Issues found
+- None. Environment setup completed without problems.
+
+---
+
+## Update 2 — BST Logic and Add Functionality
+**Date:** 30–31 March 2026
+**Files:** `databasemanager.css`, `Program.cs`
+
+### Summary
+This update involved functional testing of the second code push, specifically focusing on the Binary Search Tree logic used for vehicle record management.
+
+### What was added
+`DatabaseManager` was written to handle all SQL operations — loading records from the database into the BST at startup, inserting new records, and updating existing ones. `Program.cs` was updated to call `LoadFromDatabase` on startup.
+
+### What was tested
+- **Data entry:** Successfully executed the Add function. Verified that vehicle records (e.g. Tesla, Toyota) could be entered into the system without errors
+- **BST logic verification:** Confirmed that the sorting mechanism was functioning correctly. Plate data was being accurately assigned to the left and right nodes of the tree — e.g. a plate starting with `A` correctly sat left of a plate starting with `B`
+- **System stability:** Performed basic stress testing on input fields. The application remained stable with no null reference errors or unexpected crashes
+
+### Identified gaps
+- **Search functionality:** Testing for data retrieval was pending as the Search function had not yet been implemented in the UI
+- **Data persistence:** The system cleared all data on exit. Integration with the SQL database had not yet been completed, so test records were not saved between sessions
+
+### Issues found
+- **The `DatabaseManager` file was accidentally saved as `databasemanager.css` instead of `databasemanager.cs`.** Because `.css` is not a C# file, the compiler ignored it entirely, meaning database persistence could not be tested at all in this session. The file extension issue was not resolved in this update and was carried forward.
+
+### Conclusion
+The core Add functionality and the underlying BST sorting logic were performing as expected. Future testing was planned to shift toward the Search and Delete modules once they were integrated into the build. Database persistence testing was blocked pending the file extension fix.
+
+---
+
+## Update 3 — File Extension Fix and ToString Override
+**Date:** 2–6 April 2026
+**Files:** `databasemanager.cs` (renamed), `RecoveryRecord.cs`
+
+### What was added
+The `DatabaseManager` file was renamed from `.css` to `.cs`. A `ToString` override was added to `RecoveryRecord` so that printing a record to the console showed all its fields in a readable format rather than the default class name.
+
+### What was tested
+- Confirmed the project compiled cleanly after the rename with no missing class errors
+- All database tests from Update 2 were repeated — startup loading, insert, and update all passed now that the class was recognised
+- Called `Console.WriteLine` on a `RecoveryRecord` object and checked the output showed the plate, model, issue, location, time, and status in a readable format
+- Confirmed that records loaded from the database on startup printed correctly using the new `ToString`
+
+### Issues found
+- No new issues. The rename resolved the build error from Update 2 and everything tested cleanly.
+
+---
+
+## Update 4 — REST API and SQL Table Schema
+**Date:** 8 April 2026
+**Files:** `RecoveryController.cs`, `DatabaseManager.cs`, `SQLQuery2.sql`
+
+### What was added
+`RecoveryController.cs` introduced the first three API endpoints — `GET /api/recovery/{plate}` to search the BST, `POST /api/recovery` to add a record, and `PUT /api/recovery` to update one. `SQLQuery2.sql` defined the `CarRecoveries` table with correct column types. `DatabaseManager.cs` was updated to match.
+
+### What was tested
+- Ran `SQLQuery2.sql` in SSMS and verified the table was created with the correct columns and data types
+- Sent a `GET` request for an existing plate and confirmed the correct JSON record was returned
+- Sent a `GET` request for a non-existent plate and confirmed a `404 Not Found` was returned rather than a crash
+- Sent a `POST` with a new record and verified it appeared in both the BST (searchable immediately) and in the database (checked in SSMS)
+- Sent a `PUT` to change a record's status from `Pending` to `In Progress` and confirmed both the in-memory BST record and the database row were updated
+- Sent a `PUT` for a plate that did not exist and confirmed a `404` was returned
+
+### Issues found
+- On the first test of `GET`, the JSON response was returning field names in all lowercase (e.g. `numberplate`, `carmodel`) rather than camel case (`numberPlate`, `carModel`). This meant the frontend could not read the fields correctly. Resolved by checking the ASP.NET JSON serialisation settings.
+
+---
+
+## Update 5 — Full Refactor, Auth, Delete, and Schema Fixes
+**Date:** 9 April 2026
+**Files:** `Program.cs`, `RecoveryRecord.cs`, `RecoveryTree.cs`, `Node.cs`, `DatabaseManager.cs`, `RecoveryController.cs`, `SQLQuery2.sql`
+
+### What was added
+This was the largest update. Key additions included:
+- A full `Delete` method on `RecoveryTree.cs` handling all three BST cases — leaf node, one child, and two children using the in-order successor
+- `DeleteFromDatabase` and a `DELETE /api/recovery/{plate}` endpoint
+- `GetBreakdownStats` in `DatabaseManager.cs` returning today's count, this month's count, total count, and per-status counts
+- A `GET /api/recovery/stats` endpoint
+- `EnsureAuthTableExists` and `EnsureCarRecoveriesSchema` in `DatabaseManager.cs` to automatically patch the database schema on startup
+- Full auth system — `AuthController.cs` with `POST /api/auth/login` and `POST /api/auth/register`, password hashing with SHA-256
+- `SQLQuery2.sql` updated to use `DATEADD` so inserted dates are always relative to today
+
+### What was tested
+- **Delete — leaf node:** Deleted a record with no children and confirmed it was removed from the BST and the database. Subsequent search returned `404`.
+- **Delete — one child:** Deleted a node with one child and confirmed the child moved up correctly and the tree remained searchable.
+- **Delete — two children:** Deleted a node with two children and confirmed the in-order successor replaced it and all remaining records were still findable by search.
+- **Stats endpoint:** Inserted known records with specific dates and statuses, then called `/api/recovery/stats` and verified each count matched what was in the database.
+- **Register:** Sent a `POST /api/auth/register` with a new username and password and confirmed the user was saved to the `Users` table with a hashed password, not plaintext.
+- **Login — correct credentials:** Confirmed a token was returned and the response contained the username, full name, and role.
+- **Login — wrong password:** Confirmed a `401 Unauthorized` was returned.
+- **Login — username doesn't exist:** Confirmed a `401` was returned rather than exposing whether the username existed.
+- **Schema patch test:** Tested on a machine where the `Users` table already existed from a previous run without `FullName` and `Role` columns — confirmed the app added the missing columns automatically on startup and did not crash.
+- **BreakdownTime fix:** Inserted a record with a specific time, restarted the app, and searched for the record — confirmed the time component was preserved and not truncated to midnight.
+
+### Issues found
+- On a machine where the `Users` table already existed from an earlier version of the project, it was missing the `FullName` and `Role` columns. The app threw a `SqlException: Invalid column name 'FullName'` on startup. Fixed by adding `IF NOT EXISTS` alter statements in `EnsureAuthTableExists` to add missing columns without dropping the table.
+- A legacy `Email` column in the `Users` table on some machines was defined as `NOT NULL`. Since the register insert did not include an email field, every registration attempt failed with a `Cannot insert NULL into column 'Email'` error. Fixed by altering the column to `NULL` on startup if it existed.
+- The `BreakdownTime` column was typed as `DATE` on some machines rather than `DATETIME`, meaning the time portion was silently dropped every time a record was saved. Confirmed by inserting a record at 14:32 and reading it back to find `00:00:00`. Fixed in `EnsureCarRecoveriesSchema` which checks the column type and alters it to `DATETIME2` if needed.
+- The line chart on the frontend was not showing days with zero breakdowns. Days with no records were simply missing from the SQL result, causing uneven gaps in the graph. Fixed in the JavaScript by building a full 30-day date array and using the API response as a lookup, defaulting to 0 for any missing days.
+
+---
+
+## Update 6 — All Records Endpoint
+**Date:** 10 April 2026
+**Files:** `DatabaseManager.cs`, `RecoveryController.cs`
+
+### What was added
+`GetAllRecords` was added to `DatabaseManager.cs` supporting sort by date ascending or descending, and filter by a specific status value. A new `GET /api/recovery/all` endpoint was added to `RecoveryController.cs` passing the `sort` and `order` query parameters through to the database method.
+
+### What was tested
+- Called `/api/recovery/all` with no parameters and confirmed all records were returned, ordered newest first by default
+- Called with `?sort=date&order=asc` and confirmed the oldest record appeared first in the response array
+- Called with `?sort=date&order=desc` and confirmed the newest record appeared first
+- Called with `?sort=status&order=Pending` and confirmed only records with status `Pending` were returned, with no `In Progress` or `Completed` records in the response
+- Called with `?sort=status&order=In Progress` — confirmed URL encoding of the space worked correctly and only `In Progress` records were returned
+- Tested with an empty database table and confirmed an empty array `[]` was returned rather than a null or an error
+- Verified the SQL used a parameterised query for the status filter so a malformed status value could not cause a SQL injection
+
+### Issues found
+- No issues found in this update. All test cases passed on first run.
+
+---
+
+## Bug Summary
+
+| # | Bug description | Introduced | Fixed |
+|---|---|---|---|
+| 1 | BST insert comparison logic reversed — records placed on wrong side of tree | Update 1 | Update 1 (same day) |
+| 2 | `DatabaseManager` saved as `.css` — compiler ignored the file, app failed to build | Update 2 | Update 3 |
+| 3 | `Users` table missing `FullName` and `Role` on existing databases — startup crash | Update 5 | Update 5 (same session) |
+| 4 | Legacy `Email NOT NULL` column caused all registration inserts to fail | Update 5 | Update 5 (same session) |
+| 5 | `BreakdownTime` column typed as `DATE` — time portion lost on every save | Update 5 | Update 5 (same session) |
+| 6 | Line chart missing zero-count days — gaps appeared in the 30-day graph | Update 5 | Update 5 (same session) |
+
+---
