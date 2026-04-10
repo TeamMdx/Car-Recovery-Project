@@ -1,0 +1,94 @@
+# CST2550 — Car Recovery Management System
+### How to Run the Program
+
+Hi, this is the setup guide for our CST2550 coursework project. We have tried to make this as straightforward as possible — just follow the steps below and it should run fine on your machine.
+
+---
+
+## What you need before starting
+
+Please make sure you have the following installed before trying to run the project:
+
+- **Visual Studio 2022**
+- **SQL Server Express / LocalDB**
+- **SQL Server Management Studio (SSMS)**
+
+---
+
+## Step 1 — Get the project files
+
+Clone or download the repository from GitHub. If you're downloading as a ZIP, just extract it somewhere on your computer. The folder structure should look like this once extracted:
+
+```
+CST2550/
+├── Controllers/
+│   ├── AuthController.cs
+│   └── RecoveryController.cs
+├── wwwroot/
+│   └── index.html
+├── AuthRecord.cs
+├── BreakdownStats.cs
+├── DatabaseManager.cs
+├── Node.cs
+├── Program.cs
+├── RecoveryRecord.cs
+├── RecoveryTree.cs
+├── CST2550.csproj
+├── seed_data.sql
+└── extra_breakdowns.sql
+```
+
+---
+
+## Step 2 — Set up the database
+
+This is the most important step. The program won't work without a database set up first.
+
+1. Open **SQL Server Management Studio (SSMS)**
+2. Connect to `(localdb)\MSSQLLocalDB` using **Windows Authentication**
+3. Go to **File → Open → File** and open `SQLQuery2.sql` from the project folder
+4. Press **F5** or click **Execute** — this will create the database and insert 300+ sample records
+
+After running the script you should see `CarRecoveryDB` appear under **Databases** in SSMS on the left panel.
+
+---
+
+## Step 3 — Open the project
+
+1. Open **Visual Studio 2022**
+2. Click **Open a project or solution**
+3. Find the project folder and open **CST2550.csproj**
+
+---
+
+## Step 4 — Run it
+
+Press **F5** or click the green **Run** button. Visual Studio will build the project and a browser window should open automatically.
+
+If the browser doesn't open on its own, go to `https://localhost:5001` or `http://localhost:5000` manually.
+
+> **Note:** The first time you run it, there are no user accounts in the database yet. Click **Create account** on the login page and register with any username and password (password needs to be at least 6 characters). Then sign back in.
+
+---
+
+## Quick overview of the files
+
+I've included this in case you want to look through the code:
+
+| File | What it does |
+|---|---|
+| `Program.cs` | Entry point — sets up the app and loads data into the BST at startup |
+| `RecoveryTree.cs` | My custom Binary Search Tree, sorted by number plate |
+| `Node.cs` | A single node in the BST |
+| `RecoveryRecord.cs` | The model class for a breakdown record |
+| `DatabaseManager.cs` | Handles all the SQL queries — reading, writing, updating, deleting |
+| `AuthRecord.cs` | Models for user accounts, login and register requests |
+| `BreakdownStats.cs` | Model for the stats shown on the dashboard |
+| `Controllers/RecoveryController.cs` | API endpoints for breakdown records (search, add, update, delete, stats) |
+| `Controllers/AuthController.cs` | API endpoints for login and registration |
+| `wwwroot/index.html` | The entire frontend — login page, dashboard, search, all breakdowns tab |
+| `SQLQuery2.sql` | Creates the table and inserts 300+ sample records |
+
+---
+
+Thanks for taking the time to run it.
