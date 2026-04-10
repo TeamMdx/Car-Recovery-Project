@@ -182,6 +182,56 @@ namespace CST2550
 		}
 
 
+		// --- All records (used by the All Breakdowns tab) --------------------
+
+		// Returns all records from the database with optional sorting or status filtering.
+		// sortBy can be "date" or "status".
+		// When sortBy is "date", order is "asc" or "desc".
+		// When sortBy is "status", order is the specific status to filter by (e.g. "Pending").
+		public List<RecoveryRecord> GetAllRecords(string sortBy = "date", string order = "desc")
+		{
+			string query;
+
+			if (sortBy == "status")
+			{
+				// Filter to only show records matching the chosen status
+				query = "SELECT NumberPlate, CarModel, Issue, Location, BreakdownTime, Status FROM CarRecoveries WHERE Status = @status ORDER BY BreakdownTime DESC";
+			}
+			else
+			{
+				// Sort by date, newest or oldest first
+				string direction = order == "asc" ? "ASC" : "DESC";
+				query = $"SELECT NumberPlate, CarModel, Issue, Location, BreakdownTime, Status FROM CarRecoveries ORDER BY BreakdownTime {direction}";
+			}
+
+			var records = new List<RecoveryRecord>();
+
+			using SqlConnection conn = new SqlConnection(connectionString);
+			using SqlCommand cmd = new SqlCommand(query, conn);
+
+			if (sortBy == "status")
+				cmd.Parameters.AddWithValue("@status", order); // order holds the status value here
+
+			conn.Open();
+
+			using SqlDataReader reader = cmd.ExecuteReader();
+
+			while (reader.Read())
+			{
+				records.Add(new RecoveryRecord(
+					reader["NumberPlate"].ToString(),
+					reader["CarModel"].ToString(),
+					reader["Issue"].ToString(),
+					reader["Location"].ToString(),
+					(DateTime)reader["BreakdownTime"],
+					reader["Status"].ToString()
+				));
+			}
+
+			return records;
+		}
+
+
 		// --- Dashboard stats ------------------------------------------------
 
 		// Gets all the numbers shown on the dashboard - today's count, this month,
