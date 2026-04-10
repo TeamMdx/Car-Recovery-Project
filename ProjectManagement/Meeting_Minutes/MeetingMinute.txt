@@ -1,0 +1,733 @@
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 0
+Date and Time:  March 9, 2026
+Location:       Online
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Reviewed the full CST2550 coursework specification. Led the
+   Sprint 0 kick-off meeting and confirmed role assignments for all
+   five team members.
+
+2. What will you do today?
+   Answer: Oversee Zion's GitHub setup. Confirm all members have
+   accepted their invitations. Finalise the sprint schedule and
+   overall project timeline.
+
+3. What obstacles are impeding your progress?
+   Answer: None at this stage.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Created the GitHub repository and set up the folder structure
+   (SourceCode, Documentation, Testing, Database). Invited all five
+   team members and the tutors with the correct access levels.
+
+2. What will you do today?
+   Answer: Upload Sprint 0 kick-off meeting minutes to the repository.
+   Confirm all invited members have accepted their invitations.
+
+3. What obstacles are impeding your progress?
+   Answer: None. Repository is live and all members have been
+   successfully invited.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Researched Binary Search Tree vs Doubly Linked List for the
+   vehicle search functionality. Prepared a comparison and presented
+   findings to the team. Team agreed unanimously to go with BST due
+   to its O(log n) search efficiency.
+
+2. What will you do today?
+   Answer: Begin drafting RecoveryRecord.cs with all agreed fields:
+   NumberPlate, CarModel, Issue, Location, BreakdownTime, Status.
+
+3. What obstacles are impeding your progress?
+   Answer: None at this stage.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Set up Visual Studio 2022 locally. Reviewed the
+   RecoveryRecord class design and studied Hoang's BST research notes.
+
+2. What will you do today?
+   Answer: Begin planning RecoveryTree.cs — specifically the recursive
+   insert and search methods using string.Compare on NumberPlate.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Set up Visual Studio, SQL Server LocalDB, and SSMS on local
+   machine. Prepared the Day 1 testing checklist covering environment
+   setup and repository structure.
+
+2. What will you do today?
+   Answer: Begin Testing Log Day 1 — confirm the repository structure,
+   folder layout, and that the project opens and compiles in Visual
+   Studio without errors.
+
+3. What obstacles are impeding your progress?
+   Answer: None. Development environment is fully configured and ready.
+
+
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 1
+Date and Time:  March 14, 2026
+Location:       In Person — MDX Library
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Reviewed the first code pushes to the repository. Confirmed
+   the project compiles with the initial Program.cs. Noticed leftover
+   Car Tracker project files cluttering the repository.
+
+2. What will you do today?
+   Answer: Review RecoveryRecord.cs and Node.cs once Hoang pushes them.
+   Assist Zion with organising the sprint documentation folder.
+
+3. What obstacles are impeding your progress?
+   Answer: Legacy Car Tracker files are making the repository hard to
+   navigate. Agreed these must be removed before more code is added.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Uploaded Sprint 0 meeting minutes to the repository.
+   Confirmed all team members and tutors have the correct access.
+
+2. What will you do today?
+   Answer: Create and upload Sprint 1 document. Begin documenting the
+   folder restructure plan in the meeting minutes.
+
+3. What obstacles are impeding your progress?
+   Answer: Repository folder structure is inconsistent due to leftover
+   Car Tracker files. Cleanup is needed before the next push.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Pushed the initial Program.cs and basic project files to
+   the repository.
+
+2. What will you do today?
+   Answer: Push RecoveryRecord.cs and Node.cs to GitHub. Both are
+   complete and ready for a final review.
+
+3. What obstacles are impeding your progress?
+   Answer: Old Car Tracker files sitting alongside new code make
+   navigation confusing. Brent will handle the cleanup today.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Reviewed the initial Program.cs and confirmed the console
+   output was clean. Removed an unnecessary debug message from a
+   Console.WriteLine statement.
+
+2. What will you do today?
+   Answer: Remove all legacy Car Tracker project files from the
+   repository and set up the clean MobileCarRecoverySystem structure.
+
+3. What obstacles are impeding your progress?
+   Answer: The old project has several nested folders that need to be
+   carefully removed without breaking the repository history.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Completed Testing Log Day 1. Confirmed the environment is
+   correctly set up and the folder structure matches the project plan.
+   No functional testing performed as code is not yet available.
+
+2. What will you do today?
+   Answer: Review Hoang and Brent's code pushes when available. Prepare
+   Day 2 test cases for the BST Add and sorting functionality.
+
+3. What obstacles are impeding your progress?
+   Answer: Cannot test the BST yet — RecoveryRecord.cs and Node.cs
+   have not been pushed. Testing is blocked pending Hoang's commit.
+
+
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 2
+Date and Time:  March 22, 2026
+Location:       Online
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Reviewed the repository cleanup Brent completed. Confirmed
+   the new folder structure is clean and the project compiles correctly
+   after old files were removed.
+
+2. What will you do today?
+   Answer: Review RecoveryRecord.cs and Node.cs once Hoang pushes them.
+   Oversee sprint progress and check in with all team members.
+
+3. What obstacles are impeding your progress?
+   Answer: None. Repository is now clean and well-structured.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Uploaded Sprint 1 documentation and sprint management files.
+   Created .gitkeep placeholder files in new folders to preserve the
+   folder structure on GitHub.
+
+2. What will you do today?
+   Answer: Continue uploading sprint documents. Assist Avisha with
+   any documentation and folder organisation tasks.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Pushed RecoveryRecord.cs with all agreed fields. Started
+   early planning for DatabaseManager.cs in preparation for Sprint 3.
+
+2. What will you do today?
+   Answer: Push Node.cs and begin writing the initial DatabaseManager.cs
+   structure. Coordinate with Brent on the BST implementation status.
+
+3. What obstacles are impeding your progress?
+   Answer: Need to agree SQL column types with Brent before finalising
+   DatabaseManager, particularly for the BreakdownTime field.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Completed the RecoveryTree.cs BST implementation — insert
+   and search both working. Tested manually in the console with
+   multiple number plates.
+
+2. What will you do today?
+   Answer: Push RecoveryTree.cs to the repository. A bug was found
+   during testing where string.Compare was applied the wrong way round.
+   A corrected version will also be pushed today.
+
+3. What obstacles are impeding your progress?
+   Answer: The comparison logic was reversed in the first version,
+   causing records to land on the wrong side of the tree. The fix is
+   ready and will be committed as a follow-up push today.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Completed Testing Log Day 2. Tested the BST Add function —
+   confirmed records for vehicles such as Tesla and Toyota are entered
+   and sorted alphabetically. System remained stable with no null
+   reference errors or unexpected crashes.
+
+2. What will you do today?
+   Answer: Document two gaps found in Day 2 testing: Search is not
+   testable via the UI yet, and data does not persist between sessions.
+   Pass these to the developers as Sprint 3 requirements.
+
+3. What obstacles are impeding your progress?
+   Answer: Search functionality is not available in the UI so retrieval
+   testing is blocked. Database persistence is also not yet implemented.
+
+
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 3
+Date and Time:  March 29, 2026
+Location:       In Person — MDX Library
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Reviewed the RecoveryTree.cs push from Brent. Noticed two
+   commits for the same file — investigated and confirmed the second
+   was a bug fix for the reversed comparison logic.
+
+2. What will you do today?
+   Answer: Review DatabaseManager.cs as soon as Hoang pushes it.
+   Flag any build or logic issues to the team immediately.
+
+3. What obstacles are impeding your progress?
+   Answer: Expecting the DatabaseManager push today. Will verify
+   immediately after the commit to catch any issues early.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Uploaded Sprint 2 and Sprint 3 documentation files to the
+   Testing and Documentation folders in the repository.
+
+2. What will you do today?
+   Answer: Document the BST comparison bug from yesterday as a resolved
+   issue. Record today's standup and flag the DatabaseManager push
+   outcome in the project log.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Completed DatabaseManager.cs with LoadFromDatabase,
+   SaveToDatabase, and UpdateDatabase methods. Updated Program.cs to
+   call LoadFromDatabase on startup to populate the BST.
+
+2. What will you do today?
+   Answer: Push DatabaseManager.cs to GitHub. Coordinate with Shrayesh
+   to run database tests immediately after the push.
+
+3. What obstacles are impeding your progress?
+   Answer: A critical file extension mistake was discovered after
+   pushing — the file was accidentally saved as databasemanager.css
+   instead of databasemanager.cs. The compiler is completely ignoring
+   it. Working with Brent to get the rename done urgently.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Pushed the corrected RecoveryTree.cs fixing the left/right
+   comparison bug. Confirmed BST ordering is now correct with multiple
+   test cases.
+
+2. What will you do today?
+   Answer: Rename databasemanager.css to databasemanager.cs to resolve
+   the build error. Also add a ToString override to RecoveryRecord.cs
+   so records print cleanly to the console.
+
+3. What obstacles are impeding your progress?
+   Answer: The .css extension is blocking all database testing. This
+   is the top priority before anything else continues today.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Attempted to run database tests after Hoang's push. The
+   build was failing immediately — traced the issue to the missing
+   DatabaseManager class caused by the incorrect .css file extension.
+
+2. What will you do today?
+   Answer: Re-run all Day 2 test cases once Brent's extension fix is
+   confirmed and pushed. Write up the .css bug formally in the
+   testing log.
+
+3. What obstacles are impeding your progress?
+   Answer: All database persistence testing is completely blocked
+   until the .css rename fix is done. Cannot test loading, saving,
+   or updating records at this time.
+
+
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 3
+Date and Time:  April 5, 2026
+Location:       Online
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Confirmed the .css rename fix was working after Brent
+   pushed it. Reviewed the ToString override on RecoveryRecord.cs.
+   Verified all database operations are working correctly.
+
+2. What will you do today?
+   Answer: Begin Sprint 4 planning. Help Shrayesh design the initial
+   index.html frontend layout. Confirm what API endpoints are needed
+   for the first working web interface.
+
+3. What obstacles are impeding your progress?
+   Answer: None. The project is fully unblocked and all database
+   operations are verified.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Updated meeting minutes and testing logs to formally record
+   the .css extension bug and its resolution.
+
+2. What will you do today?
+   Answer: Upload Sprint 4 planning documents. Record Sprint 3 as
+   complete in the project documentation.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Verified databasemanager.cs was compiling correctly after
+   the rename. Retested database loading, saving, and updating —
+   all passing. Began planning the SQL table schema.
+
+2. What will you do today?
+   Answer: Write SQLQuery2.sql with the CarRecoveries table schema.
+   Begin planning RecoveryController.cs structure with Brent.
+
+3. What obstacles are impeding your progress?
+   Answer: Need to agree exact column types with Brent before
+   finalising the SQL schema, particularly for BreakdownTime.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Pushed the .css to .cs rename fix and the ToString override
+   to RecoveryRecord.cs. Confirmed the build was clean and all
+   previous tests passed.
+
+2. What will you do today?
+   Answer: Begin writing RecoveryController.cs with GET, POST, and
+   PUT endpoints. Discuss SQL schema column types with Hoang.
+
+3. What obstacles are impeding your progress?
+   Answer: None at this stage.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Re-ran all Day 2 test cases following the extension fix.
+   All passed. Confirmed database loading, saving, and updating are
+   all working correctly end-to-end.
+
+2. What will you do today?
+   Answer: Begin building the initial index.html with Avisha. Will
+   focus on the search form and register breakdown form layout.
+
+3. What obstacles are impeding your progress?
+   Answer: No API endpoints are live yet so end-to-end testing is
+   not possible. Waiting on Brent to push RecoveryController.cs.
+
+
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 4
+Date and Time:  April 8, 2026
+Location:       In Person — MDX Library
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Worked with Shrayesh to build the initial index.html with
+   a search form and register breakdown form. During testing, identified
+   a JSON field naming issue — the API was returning field names in all
+   lowercase rather than camelCase, causing the JavaScript to fail
+   silently when trying to display results.
+
+2. What will you do today?
+   Answer: Lead the full Sprint 4 frontend redesign — professional login
+   page, dashboard with stats cards and a line chart, search and edit
+   page, and All Breakdowns tab with sort and filter. Fix the JSON
+   field naming issue as part of today's work.
+
+3. What obstacles are impeding your progress?
+   Answer: JSON response field names need to be corrected before the
+   frontend can function properly. Being addressed as part of today's
+   redesign work.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Documented Sprint 3 completion and uploaded all outstanding
+   meeting minutes. Reviewed the initial index.html before it was
+   pushed to the repository.
+
+2. What will you do today?
+   Answer: Document the Sprint 4 plan in full. Keep detailed notes
+   throughout today's session as multiple features are being developed
+   at the same time.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Pushed SQLQuery2.sql with the CarRecoveries table schema
+   and initial test records. Confirmed the table was created correctly
+   in SSMS.
+
+2. What will you do today?
+   Answer: Begin the full Sprint 4 backend refactor. Add
+   EnsureAuthTableExists and EnsureCarRecoveriesSchema to
+   DatabaseManager to handle schema differences between team machines
+   on startup automatically.
+
+3. What obstacles are impeding your progress?
+   Answer: Need to handle existing Users tables on some machines that
+   are missing the FullName and Role columns added in this sprint.
+   EnsureAuthTableExists will patch this automatically on startup.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Pushed RecoveryController.cs with GET, POST, and PUT
+   endpoints. Tested all three with Shrayesh — all returning correct
+   results and HTTP status codes.
+
+2. What will you do today?
+   Answer: Implement BST Delete covering all three cases: leaf node,
+   one child, and two children using in-order successor. Add
+   DeleteFromDatabase and a DELETE endpoint. Write AuthController
+   with login and register endpoints.
+
+3. What obstacles are impeding your progress?
+   Answer: The two-children BST delete case requires careful
+   implementation. Will need thorough testing to confirm the tree
+   remains correctly ordered after every deletion scenario.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Built the initial index.html with Avisha. Tested GET, POST,
+   and PUT endpoints — all working with correct status codes.
+   Identified the JSON lowercase field naming bug during frontend
+   integration testing.
+
+2. What will you do today?
+   Answer: Test the DELETE endpoint, login and register auth flow, and
+   the dashboard stats endpoint once they are pushed. Continue
+   assisting Avisha with the frontend redesign.
+
+3. What obstacles are impeding your progress?
+   Answer: The JSON field naming issue is being fixed but needs a full
+   retest. Will confirm the frontend is reading all field names
+   correctly once the fix is applied.
+
+
+===========================================================================
+Daily Standup Meeting
+===========================================================================
+Project Name:   Mobile Car Recovery Management System
+Group Name:     absnz
+Sprint Number:  Sprint 4 — Final
+Date and Time:  April 10, 2026
+Location:       Online
+---------------------------------------------------------------------------
+List of attendance:
+- Avisha Garusingha          Attended? YES
+- Zion James-Simpson         Attended? YES
+- Hoang Phuong Nam Nguyen    Attended? YES
+- Brent Li                   Attended? YES
+- Shrayesh Lawaju             Attended? YES
+---------------------------------------------------------------------------
+Project Progress:
+
+Team Member (1): Avisha Garusingha
+
+1. What did you accomplish yesterday?
+   Answer: Led the complete frontend redesign — built the professional
+   login and register page, dashboard with stats cards and a 30-day
+   line chart, search and edit page with inline pencil icon editing,
+   and All Breakdowns tab with sort by date and filter by status.
+   Reviewed HowToRun.txt before it was pushed.
+
+2. What will you do today?
+   Answer: Final read-through of the repository to confirm all files
+   are in the correct folders. Final sign-off on the project before
+   submission.
+
+3. What obstacles are impeding your progress?
+   Answer: None. All features are complete and fully working.
+
+---
+
+Team Member (2): Zion James-Simpson
+
+1. What did you accomplish yesterday?
+   Answer: Uploaded all final sprint documentation, meeting minutes,
+   and testing logs to their correct folders in the repository.
+
+2. What will you do today?
+   Answer: Final check that all meeting minutes are uploaded and
+   correctly named. Sign off on the documentation side of the
+   submission.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (3): Hoang Phuong Nam Nguyen
+
+1. What did you accomplish yesterday?
+   Answer: Completed the full backend refactor — Program.cs,
+   RecoveryRecord.cs, RecoveryTree.cs, Node.cs all cleaned up and
+   commented. Updated SQLQuery2.sql to use DATEADD for relative
+   dates. Reorganised AuthController.cs into SourceCode/Controllers/.
+   Pushed HowToRun.txt with setup instructions.
+
+2. What will you do today?
+   Answer: Confirm the final repository structure is clean and all
+   files are in the correct folders. Final confirmation that the
+   project builds and runs end-to-end.
+
+3. What obstacles are impeding your progress?
+   Answer: None. All backend files are complete, pushed, and verified.
+
+---
+
+Team Member (4): Brent Li
+
+1. What did you accomplish yesterday?
+   Answer: Pushed the BST delete implementation covering all three
+   deletion cases — all verified correct. Added DeleteFromDatabase,
+   AuthController with login and register, GetBreakdownStats and the
+   stats endpoint, and GetAllRecords with sort and filter support
+   plus the GET /api/recovery/all endpoint.
+
+2. What will you do today?
+   Answer: Final code review of all backend files. Confirm there is
+   no leftover debug output before the final submission push.
+
+3. What obstacles are impeding your progress?
+   Answer: None.
+
+---
+
+Team Member (5): Shrayesh Lawaju
+
+1. What did you accomplish yesterday?
+   Answer: Ran the complete final test checklist — login, register,
+   search by plate, add breakdown, edit record including breakdown
+   time, delete record, dashboard stats, All Breakdowns tab with
+   date sort and status filter, and inline pencil icon edit. All
+   tests passed. Uploaded TESTER_DOCUMENTATION.txt to the Testing
+   folder.
+
+2. What will you do today?
+   Answer: Confirm the Testing folder is complete with all tester
+   logs correctly named and uploaded. Final sign-off on testing
+   for submission.
+
+3. What obstacles are impeding your progress?
+   Answer: None. All bugs logged throughout the project have been
+   resolved.
