@@ -78,6 +78,15 @@ namespace CST2550.Controllers
 			return Ok();
 		}
 
+		// GET /api/recovery/all?sort=date&order=desc
+		// Returns all records sorted by date or status - used by the All Breakdowns tab
+		[HttpGet("all")]
+		public IActionResult GetAll([FromQuery] string sort = "date", [FromQuery] string order = "desc")
+		{
+			var records = _db.GetAllRecords(sort, order);
+			return Ok(records);
+		}
+
 		// GET /api/recovery/stats
 		// Returns the stats used by the dashboard page
 		[HttpGet("stats")]
