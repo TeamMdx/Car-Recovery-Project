@@ -1,25 +1,38 @@
--- USE [CarRecoveryDB];
--- GO
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'CarRecoveryDB')
+    CREATE DATABASE CarRecoveryDB;
+GO
 
+USE [CarRecoveryDB];
+GO
+
+-- 2. Delete the table if it already exists so we can start fresh
 IF OBJECT_ID('dbo.CarRecoveries', 'U') IS NOT NULL
     DROP TABLE dbo.CarRecoveries;
 GO
 
+-- 3. Create the table with all necessary attributes
 CREATE TABLE dbo.CarRecoveries (
+    -- The Number Plate is our unique "Key" for the Binary Search Tree
     NumberPlate VARCHAR(15) NOT NULL PRIMARY KEY,
 
+    -- Vehicle and Customer Details
     CarModel VARCHAR(50) NOT NULL,
 
+    -- Breakdown Information
     Issue TEXT,
     Location VARCHAR(255) NOT NULL,
 
+    -- Date and Time of the incident
     BreakdownTime DATETIME DEFAULT GETDATE(),
 
+    -- Status: Pending, In Progress, or Completed
     Status VARCHAR(20) DEFAULT 'Pending'
 );
-
 GO
 
+-- 4. Insert 100 breakdown records
+-- BreakdownTime uses DATEADD so dates are always relative to today,
+-- which means the dashboard chart will always show spread data.
 INSERT INTO dbo.CarRecoveries (NumberPlate, CarModel, Issue, Location, BreakdownTime, Status) VALUES
 ('UT27 BAA', 'Mercedes E-Class', 'Tyre blowout at speed', 'A66 near Penrith', GETDATE(), 'Pending'),
 ('TC19 HHH', 'Vauxhall Insignia', 'Water pump failure', 'M4 Junction 7, Slough', GETDATE(), 'In Progress'),
