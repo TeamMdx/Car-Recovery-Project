@@ -17,6 +17,7 @@ using (var scope = app.Services.CreateScope())
 	var db = scope.ServiceProvider.GetRequiredService<DatabaseManager>();
 	var tree = scope.ServiceProvider.GetRequiredService<RecoveryTree>();
 
+	db.EnsureDatabaseExists();      // create CarRecoveryDB if it doesn't exist yet
 	db.EnsureAuthTableExists();     // create the Users table if it doesn't exist yet
 	db.EnsureCarRecoveriesSchema(); // make sure BreakdownTime is DATETIME2 not just DATE
 	db.LoadFromDatabase(tree);      // load all existing records into the BST
